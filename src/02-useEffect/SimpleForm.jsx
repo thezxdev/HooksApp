@@ -18,11 +18,19 @@ export const SimpleForm = () => {
     })
   }
 
+  // No se recomienda tener un eseEffect sin dependencias
   useEffect( () => {
-
     console.log( 'useEffect called' );
+  }, [] );
 
-  }, );
+  // Se recomienda tener un eseEffect por cada efecto o acción secundaria que se quiera realizar
+  useEffect( () => {
+    console.log( 'formState changed' );
+  }, [ formState ] );
+
+  useEffect( () => {
+    console.log( 'email changed' );
+  }, [ email ] );
 
   return (
     <>
