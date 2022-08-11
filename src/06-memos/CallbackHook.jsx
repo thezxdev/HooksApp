@@ -8,14 +8,14 @@ export const CallbackHook = () => {
 
   // Memorizar la funcion
   const incrementFather = useCallback(
-    () => {
-      setCounter( ( value ) => value + 1 );
+    ( value ) => {
+      setCounter( ( c ) => c + value );
     },
   [] );
 
-  useEffect(() => {
-    incrementFather();
-  }, [] );
+  // useEffect(() => {
+  //   incrementFather;
+  // }, [ incrementFather ] );
   
 
   return (
