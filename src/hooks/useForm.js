@@ -8,7 +8,7 @@ export const useForm = ( initialForm = {} ) => {
   //   password: ''
   // });
 
-  const [formState, setFormState] = useState( initialForm );
+  const [ formState, setFormState ] = useState( initialForm );
 
   // const { username, email, password } = formState;
 
