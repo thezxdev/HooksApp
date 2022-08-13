@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useTodos } from '../hooks/useTodos';
 import { TodoAdd } from './TodoAdd';
 import { TodoList } from './TodoList';
@@ -18,11 +17,11 @@ import { TodoList } from './TodoList';
 
 export const TodoApp = () => {
 
-  const { handleDeleteTodo, handleTodo, handleToggleTodo, todos } = useTodos();
+  const { handleDeleteTodo, handleTodo, handleToggleTodo, todos, pendingTodos } = useTodos();
 
   return (
     <>
-      <h1>TodoApp: (10), <small>Pendientes: 2</small></h1>
+      <h1>TodoApp: ({ todos.length }), <small>Pendientes: { pendingTodos() }</small></h1>
       <hr />
 
       <div className="row">

@@ -13,6 +13,10 @@ export const useTodos = () => {
 
   const [ todos, dispatchTodo ] = useReducer( todoReducer, initialState, initReducer ); // Añadir función inicializadora del reducer.
 
+  const pendingTodos = () => {
+    return todos.filter( todo => !todo.done ).length;
+  }
+
   // Guardar datos en el localStorage cada vez que cambian los valores
   useEffect( () => {
     localStorage.setItem('todos', JSON.stringify( todos ) );
@@ -46,10 +50,12 @@ export const useTodos = () => {
     });
   }
 
+
   return {
     handleTodo,
     handleDeleteTodo,
     handleToggleTodo,
-    todos
+    todos,
+    pendingTodos
   }
 }
