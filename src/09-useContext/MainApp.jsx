@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { AboutPage } from './AboutPage';
+import { UserProvider } from './context/UserProvider';
 import { HomePage } from './HomePage';
 import { LoginPage } from './LoginPage';
 import { NavBar } from './NavBar';
@@ -7,7 +8,8 @@ import { NavBar } from './NavBar';
 // Componente en el que se van a mostrar todas las rutas
 export const MainApp = () => {
   return (
-    <>
+    // Utilización del proveedor | Cualquier elemento dentro de el y sus subcomponentes tendrán acceso a la información del UserProvider
+    <UserProvider>
       {/* <h1>MainApp</h1> */}
       <NavBar />
       <hr />
@@ -22,6 +24,6 @@ export const MainApp = () => {
         <Route path="/*" element={ <Navigate to="/about" />  } />
       </Routes>
 
-    </>
+    </UserProvider>
   )
 }
